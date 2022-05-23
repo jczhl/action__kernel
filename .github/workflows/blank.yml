@@ -9,10 +9,9 @@ on:
 #    branches: [ master ]
    
 env:
-  repo_url: https://github.com/meizucustoms/android_kernel_meizu_sdm845
-  repo_branch: oreo
-  repo_os: pavanda
-  model: HC5861
+  repo_url: https://github.com/PixelExperience-Devices/kernel_xiaomi_cepheus
+  repo_branch: twelve
+  
 
 
 jobs:
