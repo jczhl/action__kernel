@@ -40,7 +40,7 @@ jobs:
           bash ./"${{ steps.config.outputs.build_sh }}"
 
       - name: Upload artifact
-          uses: actions/upload-artifact@master
-          with:
-           name: pavadan
-           path: kernel/out/arch/arm64/boot/Image.gz-dtb
+        uses: actions/upload-artifact@master
+        with:
+         name: pavadan
+         path: kernel/out/arch/arm64/boot/Image.gz-dtb
