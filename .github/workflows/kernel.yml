@@ -35,9 +35,9 @@ jobs:
           
       - name: make kernel
         run: |
-          sudo mv "$build_sh" $GITHUB_WORKSPACE/kernel
+          sudo mv "${{ steps.config.outputs.build_sh }}" $GITHUB_WORKSPACE/kernel
           cd $GITHUB_WORKSPACE/kernel
-          bash ./"$build_sh"
+          bash ./"${{ steps.config.outputs.build_sh }}"
 
       - name: Upload to Release
         uses: ncipollo/release-action@v1
