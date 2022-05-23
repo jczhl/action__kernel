@@ -1,0 +1,48 @@
+name: Action_Kernel
+
+on:
+  watch:
+    types: [started]
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+   
+env:
+  repo_url: https://github.com/meizucustoms/android_kernel_meizu_sdm845
+  repo_branch: oreo
+  repo_os: pavanda
+  model: HC5861
+
+
+jobs:
+    build:
+      runs-on: ubuntu-20.04
+
+    steps:
+
+      - uses: actions/checkout@v2
+
+ 
+      - name: Git kernel
+        run: |
+          git clone $repo_url -b $repo_branch kernel
+
+      - name: make kernel
+        run: |
+          sudo mv build.sh $GITHUB_WORKSPACE/kernel
+          cd $GITHUB_WORKSPACE/kernel
+          bash ./build.sh
+
+      - name: Release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          automatic_release_tag: "latest"
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          files: |
+            kernel/out/*.zip
+
+
+
+
