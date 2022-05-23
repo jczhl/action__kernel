@@ -1,4 +1,4 @@
-name: Action_Kernel
+name: action_kernel
 
 on:
   watch:
@@ -9,11 +9,10 @@ on:
 #    branches: [ master ]
    
 env:
-  repo_url: https://github.com/PixelExperience-Devices/kernel_xiaomi_cepheus
-  repo_branch: twelve
+  repo_url: https://github.com/meizucustoms/android_kernel_meizu_sdm845
+  repo_branch: oreo
+  build_sh: gcc4.9.sh
   
-
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -29,15 +28,11 @@ jobs:
         run: |
           sudo mv build.sh $GITHUB_WORKSPACE/kernel
           cd $GITHUB_WORKSPACE/kernel
-          bash ./build.sh
+          bash ./$build_sh
 
-      - name: Release
-        uses: "marvinpinto/action-automatic-releases@latest"
+      - name: Upload to Release
+        uses: ncipollo/release-action@v1
         with:
-          automatic_release_tag: "latest"
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          prerelease: false
-          files: |
-            kernel/out/*.zip
+          artifacts: "kernel/out/arch/arm64/boot/Image.gz-dtb"
 
 
