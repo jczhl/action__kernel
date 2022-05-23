@@ -39,7 +39,7 @@ jobs:
           cd $GITHUB_WORKSPACE/kernel
           bash ./"${{ steps.config.outputs.build_sh }}"
 
-      - name: Upload to Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "$GITHUB_WORKSPACE/kernel/out/arch/arm64/boot/Image.gz-dtb"
+        - name: Upload artifact
+          uses: actions/upload-artifact@master
+          with:
+           name: "$GITHUB_WORKSPACE/kernel/out/arch/arm64/boot/Image.gz-dtb"
