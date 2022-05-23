@@ -11,3 +11,4 @@ echo "=========================Clean========================="
 make mrproper && git reset --hard HEAD
 echo "=========================make========================="
 make O=out m1882_defconfig
+make O=out
