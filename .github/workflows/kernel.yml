@@ -19,7 +19,7 @@ jobs:
         uses: falti/dotenv-action@v0.2.5
         id: config
         with:
-          path: config.env
+          path: set.env
 
       - name: Check Configuration
         run: |
