@@ -19,10 +19,10 @@ jobs:
     build:
       runs-on: ubuntu-20.04
 
-    steps:
-
-      - uses: actions/checkout@v2
-
+      steps:
+        - name: 获取本仓库源码
+          uses: actions/checkout@main
+  
  
       - name: Git kernel
         run: |
@@ -42,7 +42,6 @@ jobs:
           prerelease: false
           files: |
             kernel/out/*.zip
-
 
 
 
