@@ -42,4 +42,4 @@ jobs:
       - name: Upload to Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: "kernel/out/arch/arm64/boot/Image.gz-dtb"
+          artifacts: "$GITHUB_WORKSPACE/kernel/out/arch/arm64/boot/Image.gz-dtb"
