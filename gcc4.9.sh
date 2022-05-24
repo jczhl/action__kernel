@@ -8,7 +8,7 @@ git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_aarch64_a
 git clone https://github.com/LineageOS/android_prebuilts_gcc_linux-x86_arm_arm-linux-androideabi-4.9 -b lineage-18.1 tool/arm
 sh -c "$(curl -sSL https://github.com/akhilnarang/scripts/raw/master/setup/android_build_env.sh/)"
 echo "=========================Clean========================="
-make mrproper && git reset --hard HEAD
+# make mrproper && git reset --hard HEAD
 echo "=========================make========================="
-make O=out m1882_defconfig
+make O=out mblu2_defconfig
 make O=out
