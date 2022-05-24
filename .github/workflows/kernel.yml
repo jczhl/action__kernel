@@ -37,6 +37,7 @@ jobs:
         run: |
           sudo mv "${{ steps.config.outputs.build_sh }}" $GITHUB_WORKSPACE/kernel
           cd $GITHUB_WORKSPACE/kernel
+          mkdir out
           bash ./"${{ steps.config.outputs.build_sh }}"
 
       - name: Upload artifact
