@@ -10,5 +10,5 @@ sh -c "$(curl -sSL https://github.com/akhilnarang/scripts/raw/master/setup/andro
 echo "=========================Clean========================="
 make mrproper && git reset --hard HEAD
 echo "=========================make========================="
-make O=out mblu2_defconfig
+make O=out m1721_defconfig
 make O=out
