@@ -42,5 +42,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@master
         with:
-         name: pavadan
+         name: kernel
          path: kernel/out/arch/arm64/boot/Image.gz-dtb
