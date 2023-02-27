@@ -31,7 +31,7 @@ jobs:
  
       - name: Git kernel
         run: |
-          git clone "${{ steps.config.outputs.kernel_url }}" -b "${{ steps.config.outputs.branch_name }}" kernel
+          git clone --depth=1 "${{ steps.config.outputs.kernel_url }}" -b "${{ steps.config.outputs.branch_name }}" kernel
           
       - name: make kernel
         run: |
